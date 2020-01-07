@@ -52,21 +52,17 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
 
     @Override
     public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
-        Toast.makeText(context, "Update", Toast.LENGTH_SHORT).show();
+
         this.update("You can now access the app.", true);
     }
 
     private void update(final String s, final boolean b) {
-        Toast.makeText(context, "Update", Toast.LENGTH_SHORT).show();
         imageView.setImageResource(R.drawable.fingerprint);
-
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                //Do something after 100ms
                 imageView.setImageResource(R.mipmap.action_done);
-                //Toast.makeText(context, "Update-3000", Toast.LENGTH_SHORT).show();
                 TextView paraLabel = (TextView) ((Activity) context).findViewById(R.id.paraLabel);
                 paraLabel.setText(s);
 
